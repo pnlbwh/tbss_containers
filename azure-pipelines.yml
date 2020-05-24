@@ -22,7 +22,7 @@ jobs:
     user: pnlbwh
     wd: /home
     testConfigFile: all-branch-test.yaml
-    imageTag: 0.1
+    imageTag: 0.1.4
 
 
   steps:
@@ -64,7 +64,8 @@ jobs:
     
 
   - script: |
-        docker push -t $(imageName):latest -t $(imageName):$(imageTag)
+        docker push $(imageName):latest
+        docker push $(imageName):$(imageTag)
     displayName: 'Push the docker image'
     failOnStderr: true
   
